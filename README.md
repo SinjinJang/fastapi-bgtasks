@@ -22,4 +22,6 @@ uvicorn app.main:app --reload
 
 ## Problem
 
-* Heroku에서 FUSE 마운트 미지원으로 AppImage 실행 불가. [참고 링크](https://pelson.github.io/2017/heroku_fuse_mount/)
+* ~~Heroku에서 FUSE 마운트 미지원으로 AppImage 실행 불가. [참고 링크](https://pelson.github.io/2017/heroku_fuse_mount/)~~
+    * WORKAROUND SOLUTION: AppImage를 압축 해제하여 프로그램 실행함.
+    * 추가적으로 필요한 dependency는 Aptfile에 등록하여 설치 (heroku-buildpack-apt 플러그인 사용)
