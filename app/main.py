@@ -9,12 +9,12 @@ def read_root():
     return {'Hello': 'World'}
 
 
-def run_shell_cmd(email: str):
-    os.system('sleep 10 && echo shell command done')
-    print(f'[dummy] Send result to {email}')
+def task_convert(email: str):
+    os.system('cd ./openscad && ./convert.sh input.scad')
+    print(f'[TODO] Send result to {email}')
 
 
-@app.get('/run-bgtasks/{email}')
-async def run_bgtasks(email: str, bg_tasks: BackgroundTasks):
-    bg_tasks.add_task(run_shell_cmd, email)
+@app.get('/model-3d/{email}')
+async def model_3d(email: str, bg_tasks: BackgroundTasks):
+    bg_tasks.add_task(task_convert, email)
     return {'result': 'Background job is in queue'}
