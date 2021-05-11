@@ -11,6 +11,6 @@ if [ ! -f ${OPENSCAD_EXECUTABLE} ]; then
     rm ./${OPENSCAD_APPIMAGE}
 fi
 
-${OPENSCAD_EXECUTABLE} --export-format stl -o output.stl ${SCAD_FILE}
+LD_LIBRARY_PATH=${PWD}/squashfs-root/usr/lib:${LD_LIBRARY_PATH} ${OPENSCAD_EXECUTABLE} --export-format stl -o output.stl ${SCAD_FILE}
 
 echo 'converting done!!!'
