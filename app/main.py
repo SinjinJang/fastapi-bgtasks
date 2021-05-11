@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, BackgroundTasks
 
 app = FastAPI()
@@ -9,7 +10,8 @@ def read_root():
 
 
 def run_shell_cmd(email: str):
-    print('run_ext_process_task', email)
+    os.system('sleep 10 && echo shell command done')
+    print(f'[dummy] Send result to {email}')
 
 
 @app.get('/run-bgtasks/{email}')
